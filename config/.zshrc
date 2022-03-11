@@ -19,6 +19,7 @@ plugins=(
   sudo
   docker-compose
   laravel
+  poetry
 )
 
 # Custom plugins
@@ -61,6 +62,7 @@ alias pasip="php artisan serve --host 0.0.0.0 --port 8080"
 
 # Automatically check venv and node modules for executables
 export PATH="./venv/bin:./node_modules/.bin:~/bin:$PATH"
+export PATH="$HOME/.poetry/bin:$PATH"
 
 # Pyenv
 export PATH="$HOME/.pyenv/bin:$PATH"

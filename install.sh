@@ -88,5 +88,12 @@ echo "** Installing Docker-compose"
 sudo curl -L "https://github.com/docker/compose/releases/download/2.3.3/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
 sudo chmod +x /usr/local/bin/docker-compose
 
+#----------------------------------------------------------------------------
+# Poetry
+#----------------------------------------------------------------------------
+echo
+echo "** Installing Poetry"
+curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python -
+
 echo
 echo "** Done"
