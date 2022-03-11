@@ -61,7 +61,7 @@ curl -L https://github.com/pyenv/pyenv-installer/raw/master/bin/pyenv-installer 
 #----------------------------------------------------------------------------
 echo
 echo "** Installing NVM (nodejs)"
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.0/install.sh | bash
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
 
 #----------------------------------------------------------------------------
 # Docker
@@ -85,7 +85,7 @@ sudo usermod -aG docker $USER
 #----------------------------------------------------------------------------
 echo
 echo "** Installing Docker-compose"
-sudo curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+sudo curl -L "https://github.com/docker/compose/releases/download/2.3.3/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
 sudo chmod +x /usr/local/bin/docker-compose
 
 echo
