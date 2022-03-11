@@ -32,11 +32,26 @@ source ~/.nvm/nvm.sh
 # Disable share history across consoles
 unsetopt share_history
 
-# Example aliases
+# Aliases - Remove what you don't need
 alias gs="git status -sb"
 alias zshreload="source $HOME/.zshrc"
+alias zshconfig="mate $HOME/.zshrc"
+alias ohmyzsh="mate $HOME/.oh-my-zsh"
+
+# Specific aliases for Home Assistant
+alias ha_start="hass -c config"
+alias ha_new="python3 -m script.scaffold integration"
+alias ha_updatereq="python -m script.gen_requirements_all"
+alias ha_hassfest="python -m script.hassfest"
+alias ha_installreq="pip install -r requirements_all.txt"
+alias ha_installtest="pip install -r requirements_test_all.txt -c homeassistant/package_constraints.txt"
+alias ha_updatetrans="python -m script.translations develop"
+
+# Venv
 alias entervenv="source venv/bin/activate"
 alias createvenv="python3 -m venv venv"
+
+# Pip
 alias freeze="pip freeze > requirements.txt"
 alias pipinstall="pip install -r requirements.txt"
 alias pasip="php artisan serve --host 0.0.0.0 --port 8080"
