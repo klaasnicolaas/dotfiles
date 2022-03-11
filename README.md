@@ -9,6 +9,18 @@ git clone https://github.com/klaasnicolaas/dotfiles.git
 cd dotfiles && bash install.sh
 ```
 
+## Installed packages
+
+The following platforms are installed and set up:
+
+- GitHub CLI
+- Oh My Zsh (with powerlevel10k)
+- Pyenv
+- Nvm
+- Docker
+- Docker Compose
+- Poetry
+
 ## Manual things
 
 After installation, there are still a few things I always do manually.
