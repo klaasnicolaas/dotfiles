@@ -54,7 +54,7 @@ alias createvenv="python3 -m venv venv"
 
 # Pip
 alias freeze="pip freeze > requirements.txt"
-alias pipinstall="pip install -r requirements.txt"
+alias pip_install="pip install -r requirements.txt"
 alias pasip="php artisan serve --host 0.0.0.0 --port 8080"
 
 # fzf
