@@ -19,7 +19,6 @@ The following platforms are installed and set up:
 - Nvm
 - Docker
 - Docker Compose
-- Poetry
 
 ## Manual things
 
@@ -37,6 +36,14 @@ Setup Github account:
 ```bash
 git config --global user.name "Klaas Schoute"
 git config --global user.email hello@example.com
+```
+
+Install Poetry:
+
+_Note: This can only after installing python._
+
+```bash
+bash components/poetry.sh
 ```
 
 ## Links
