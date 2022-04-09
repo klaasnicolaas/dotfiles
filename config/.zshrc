@@ -49,8 +49,8 @@ alias ha_installtest="pip install -r requirements_test_all.txt -c homeassistant/
 alias ha_updatetrans="python -m script.translations develop"
 
 # Venv
-alias entervenv="source venv/bin/activate"
-alias createvenv="python3 -m venv venv"
+alias venv_enter="source venv/bin/activate"
+alias venv_create="python3 -m venv venv"
 
 # Pip
 alias freeze="pip freeze > requirements.txt"
