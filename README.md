@@ -39,6 +39,13 @@ git config --global user.name "Klaas Schoute"
 git config --global user.email "hello@example.com"
 ```
 
+Setup Node.JS/NPM:
+
+```bash
+nvm install 16
+nvm use 16
+```
+
 Install Poetry:
 
 _Note: This can only after installing python._
