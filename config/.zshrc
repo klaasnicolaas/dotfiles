@@ -53,9 +53,12 @@ alias venv_enter="source venv/bin/activate"
 alias venv_create="python3 -m venv venv"
 
 # Pip
-alias freeze="pip freeze > requirements.txt"
+alias pip_freeze="pip freeze > requirements.txt"
 alias pip_install="pip install -r requirements.txt"
+
+# Php
 alias pasip="php artisan serve --host 0.0.0.0 --port 8080"
+alias php_modules="dpkg --get-selections | grep -i php"
 
 # fzf
 [ -f /usr/share/doc/fzf/examples/key-bindings.zsh ] && source /usr/share/doc/fzf/examples/key-bindings.zsh
