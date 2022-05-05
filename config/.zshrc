@@ -60,6 +60,9 @@ alias pip_install="pip install -r requirements.txt"
 alias pasip="php artisan serve --host 0.0.0.0 --port 8080"
 alias php_modules="dpkg --get-selections | grep -i php"
 
+# Pyenv
+alias pyenv_list='pyenv install --list | grep " 3\.[910]"'
+
 # fzf
 [ -f /usr/share/doc/fzf/examples/key-bindings.zsh ] && source /usr/share/doc/fzf/examples/key-bindings.zsh
 
