@@ -19,6 +19,7 @@ The following platforms are installed and set up by default with the bash script
 - Nvm
 - Docker
 - Docker Compose
+- Composer
 
 ## Manual installations
 

@@ -8,7 +8,7 @@ ln -sf ~/dotfiles/config/.gitignore ~
 echo
 echo "** Installing apt packages"
 sudo apt-get update
-sudo apt-get install -y --no-install-recommends zsh fzf vim jq
+sudo apt-get install -y --no-install-recommends zsh fzf vim jq unzip php-cli
 
 USER=`whoami`
 sudo -n chsh $USER -s $(which zsh)
@@ -87,6 +87,16 @@ echo
 echo "** Installing Docker-compose"
 sudo curl -L "https://github.com/docker/compose/releases/download/v2.6.1/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
 sudo chmod +x /usr/local/bin/docker-compose
+
+#----------------------------------------------------------------------------
+# Composer
+#----------------------------------------------------------------------------
+echo
+echo "** Installing Composer"
+curl -sS https://getcomposer.org/installer -o /tmp/composer-setup.php
+HASH=`curl -sS https://composer.github.io/installer.sig`
+php -r "if (hash_file('SHA384', '/tmp/composer-setup.php') === '$HASH') { echo 'Installer verified'; } else { echo 'Installer corrupt'; unlink('composer-setup.php'); } echo PHP_EOL;"
+sudo php /tmp/composer-setup.php --install-dir=/usr/local/bin --filename=composer
 
 echo
 echo "-- Done --"
