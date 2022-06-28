@@ -59,6 +59,7 @@ alias pip_install="pip install -r requirements.txt"
 # Php
 alias pasip="php artisan serve --host 0.0.0.0 --port 8080"
 alias php_modules="dpkg --get-selections | grep -i php"
+alias sail="./vendor/bin/sail"
 
 # Pyenv
 alias pyenv_list='pyenv install --list | grep " 3\.[910]"'
