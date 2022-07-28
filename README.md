@@ -68,6 +68,10 @@ bash components/poetry.sh
 Follow the instructions on this website: <br>
 https://www.cloudbooklet.com/how-to-upgrade-php-version-to-php-8-0-on-ubuntu/
 
+```bash
+sudo apt install php8.1-{bcmath,xml,xmlrpc,fpm,mysql,zip,intl,ldap,gd,cli,bz2,curl,common,mbstring,pgsql,opcache,soap,cgi,imagick,readline,sqlite3}
+```
+
 ## Links
 
 https://realpython.com/intro-to-pyenv/ <br>
