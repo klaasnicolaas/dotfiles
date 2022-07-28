@@ -53,6 +53,7 @@ git config --global user.email "hello@example.com"
 ```bash
 nvm install 16
 nvm use 16
+nvm alias default 16
 ```
 
 ### Install Poetry
