@@ -44,9 +44,10 @@ alias ha_start="hass -c config"
 alias ha_new="python3 -m script.scaffold integration"
 alias ha_updatereq="python -m script.gen_requirements_all"
 alias ha_hassfest="python -m script.hassfest"
+alias ha_trans="python -m script.translations develop"
 alias ha_installreq="pip install -r requirements_all.txt"
-alias ha_installtest="pip install -r requirements_test_all.txt -c homeassistant/package_constraints.txt"
-alias ha_updatetrans="python -m script.translations develop"
+alias ha_installtest="pip install -r requirements_test.txt"
+alias ha_installtestall="pip install --use-deprecated=legacy-resolver -r requirements_test_all.txt -c homeassistant/package_constraints.txt"
 
 # Venv
 alias venv_enter="source venv/bin/activate"
