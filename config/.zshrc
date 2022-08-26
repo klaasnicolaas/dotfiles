@@ -38,6 +38,7 @@ alias gs="git status -sb"
 alias zshreload="source $HOME/.zshrc"
 alias zshconfig="mate $HOME/.zshrc"
 alias ohmyzsh="mate $HOME/.oh-my-zsh"
+alias diskspace="sudo du -shx * | sort -rh | head -10"
 
 # Specific aliases for Home Assistant
 alias ha_start="hass -c config"
@@ -47,7 +48,7 @@ alias ha_hassfest="python -m script.hassfest"
 alias ha_trans="python -m script.translations develop"
 alias ha_installreq="pip install -r requirements_all.txt"
 alias ha_installtest="pip install -r requirements_test.txt"
-alias ha_installtestall="pip install --use-deprecated=legacy-resolver -r requirements_test_all.txt -c homeassistant/package_constraints.txt"
+alias ha_installtest_all="pip install --use-deprecated=legacy-resolver -r requirements_test_all.txt -c homeassistant/package_constraints.txt"
 
 # Venv
 alias venv_enter="source venv/bin/activate"
