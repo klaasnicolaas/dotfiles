@@ -48,6 +48,7 @@ alias ha_hassfest="python -m script.hassfest"
 alias ha_trans="python -m script.translations develop"
 alias ha_installreq="pip install -r requirements_all.txt"
 alias ha_installtest="pip install -r requirements_test.txt"
+alias ha_installpre="pip install -r requirements_test_pre_commit.txt"
 alias ha_installtest_all="pip install --use-deprecated=legacy-resolver -r requirements_test_all.txt -c homeassistant/package_constraints.txt"
 
 # Venv
