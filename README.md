@@ -67,10 +67,19 @@ bash components/poetry.sh
 ### Install PHP
 
 Follow the instructions on this website: <br>
-https://www.cloudbooklet.com/how-to-upgrade-php-version-to-php-8-0-on-ubuntu/
+https://www.prowebtips.com/upgrade-php-8-2-from-php-8-1-x-or-older-version
+
+Instal PHP 8.2 and all the extensions:
 
 ```bash
-sudo apt install php8.1-{bcmath,xml,xmlrpc,fpm,mysql,zip,intl,ldap,gd,cli,bz2,curl,common,mbstring,pgsql,opcache,soap,cgi,imagick,readline,sqlite3}
+sudo apt install php8.2
+sudo apt install php8.2-{bcmath,xml,xmlrpc,fpm,mysql,zip,intl,ldap,gd,cli,bz2,curl,common,mbstring,pgsql,opcache,soap,cgi,imagick,readline,sqlite3}
+```
+
+To remove the old packages:
+
+```bash
+sudo apt-get purge 'php8.1*'
 ```
 
 ## Links
