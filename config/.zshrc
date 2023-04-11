@@ -77,8 +77,8 @@ export PATH="./venv/bin:./node_modules/.bin:~/bin:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
 
 # Pyenv
-export PATH="$HOME/.pyenv/bin:$PATH"
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init --path)"
-eval "$(pyenv init -)"
 
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
