@@ -8,7 +8,7 @@ ln -sf ~/dotfiles/config/.gitignore ~
 echo
 echo "** Installing apt packages"
 sudo apt-get update
-sudo apt-get install -y --no-install-recommends zsh fzf vim jq unzip php-cli
+sudo apt-get install -y --no-install-recommends zsh fzf vim jq unzip php-cli net-tools
 
 USER=`whoami`
 sudo -n chsh $USER -s $(which zsh)
