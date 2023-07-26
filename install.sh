@@ -61,7 +61,7 @@ curl -L https://github.com/pyenv/pyenv-installer/raw/master/bin/pyenv-installer 
 #----------------------------------------------------------------------------
 echo
 echo "** Installing NVM (nodejs)"
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.4/install.sh | bash
 
 #----------------------------------------------------------------------------
 # Docker
