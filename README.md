@@ -36,9 +36,9 @@ This is the case for:
 ### Install a python version
 
 ```bash
-pyenv install --list | grep " 3\.[8910]"
-pyenv install 3.10.9
-pyenv global 3.10.9
+pyenv install --list | grep " 3\.[91011]"
+pyenv install 3.11.4
+pyenv global 3.11.4
 ```
 
 ### Setup Github account
