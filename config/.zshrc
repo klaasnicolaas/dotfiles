@@ -51,6 +51,16 @@ alias ha_installreq="pip install -r requirements_all.txt -c homeassistant/packag
 alias ha_installtest="pip install -r requirements_test.txt"
 alias ha_installpre="pip install -r requirements_test_pre_commit.txt"
 
+# Home Assistant tests
+ha_test() {
+    venv_enter
+    pytest --timeout=10 --cov=homeassistant.components.$1 --cov-report term-missing tests/components/$1 -vv
+}
+ha_test_snapshot_update() {
+  venv_enter
+  pytest ./tests/components/$1/ --snapshot-update
+}
+
 # Venv
 alias venv_enter="source venv/bin/activate"
 alias venv_create="python3 -m venv venv"
