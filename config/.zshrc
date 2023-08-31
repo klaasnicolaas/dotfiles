@@ -81,7 +81,10 @@ alias laravel_clear="php artisan optimize:clear"
 alias sail="./vendor/bin/sail"
 
 # Pyenv
-alias pyenv_list='pyenv install --list | grep " 3\.[910]"'
+alias pyenv_list='pyenv install --list | grep " 3\.[91011]"'
+
+# Django
+alias django="python manage.py"
 
 # fzf
 [ -f /usr/share/doc/fzf/examples/key-bindings.zsh ] && source /usr/share/doc/fzf/examples/key-bindings.zsh
