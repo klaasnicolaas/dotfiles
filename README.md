@@ -37,8 +37,8 @@ This is the case for:
 
 ```bash
 pyenv install --list | grep " 3\.[91011]"
-pyenv install 3.11.4
-pyenv global 3.11.4
+pyenv install 3.11.6
+pyenv global 3.11.6
 ```
 
 ### Setup Github account
@@ -50,10 +50,12 @@ git config --global user.email "hello@example.com"
 
 ### Setup Node.JS/NPM
 
+Version 20 is currently the LTS version.
+
 ```bash
-nvm install 18
-nvm use 18
-nvm alias default 18
+nvm install 20
+nvm use 20
+nvm alias default 20
 ```
 
 ### Install Poetry
