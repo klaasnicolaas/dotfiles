@@ -86,6 +86,28 @@ ha_test_snapshot_update() {
   pytest ./tests/components/$1/ --snapshot-update
 }
 
+# Git
+git_rm_branches() {
+  local branches=$(git branch | grep "$1")
+
+  if [ -z "$branches" ]; then
+    echo "No branches found matching pattern '$1'."
+    return 1
+  fi
+
+  echo "Branches found matching pattern '$1':"
+  echo "$branches"
+  read -p "Do you want to delete these branches? (y/n): " confirm
+
+  if [ "$confirm" = "y" ]; then
+    echo "$branches" | xargs git branch -D
+    echo "Branches deleted successfully."
+  else
+    echo "Operation cancelled."
+  fi
+}
+
+
 # fzf
 [ -f /usr/share/doc/fzf/examples/key-bindings.zsh ] && source /usr/share/doc/fzf/examples/key-bindings.zsh
 
