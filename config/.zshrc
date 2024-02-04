@@ -97,14 +97,17 @@ git_rm_branches() {
 
   echo "Branches found matching pattern '$1':"
   echo "$branches"
-  read -p "Do you want to delete these branches? (y/n): " confirm
 
-  if [ "$confirm" = "y" ]; then
-    echo "$branches" | xargs git branch -D
-    echo "Branches deleted successfully."
-  else
-    echo "Operation cancelled."
-  fi
+  read -r "REPLY?Do you want to delete these branches? (y/n): "
+  case "$REPLY" in
+    [Yy])
+      echo "$branches" | xargs git branch -D
+      echo "Branches deleted successfully."
+      ;;
+    *)
+      echo "Operation cancelled."
+      ;;
+  esac
 }
 
 
