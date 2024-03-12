@@ -68,13 +68,22 @@ bash components/poetry.sh
 
 ### Install PHP
 
-Follow the instructions on this website: <br>
-https://www.prowebtips.com/upgrade-php-8-2-from-php-8-1-x-or-older-version
-
 Instal PHP 8.2 and all the extensions:
 
 ```bash
-sudo apt install php8.2
+# 👇 install software-properties-common
+sudo apt -y install software-properties-common
+
+# 👇 use add-apt-repository command to install the PPA
+sudo add-apt-repository ppa:ondrej/php
+
+# 👇 refresh the package manager
+sudo apt-get update
+
+# 👇 install latest PHP version
+sudo apt -y install php8.2
+
+# 👇 install all the extensions
 sudo apt install php8.2-{bcmath,xml,xmlrpc,fpm,mysql,zip,intl,ldap,gd,cli,bz2,curl,common,mbstring,pgsql,opcache,soap,cgi,imagick,readline,sqlite3}
 ```
 
