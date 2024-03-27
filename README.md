@@ -35,10 +35,12 @@ This is the case for:
 
 ### Install a python version
 
+The use of **pyenv** is recommended to manage multiple python versions, with the `grep` command we can narrow down the list with newer versions.
+
 ```bash
-pyenv install --list | grep " 3\.[91011]"
-pyenv install 3.11.6
-pyenv global 3.11.6
+pyenv install --list | grep -E "^\s*3\.(11|12|13)(\..*|-dev.*)"
+pyenv install 3.11.8
+pyenv global 3.11.8
 ```
 
 ### Setup Github account
