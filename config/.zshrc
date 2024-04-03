@@ -50,18 +50,22 @@ alias ha_new="python3 -m script.scaffold integration"
 alias ha_updatereq="python -m script.gen_requirements_all"
 alias ha_hassfest="python -m script.hassfest"
 alias ha_trans="python -m script.translations develop"
-alias ha_install="pip install -e ."
-alias ha_installreq="pip install -r requirements_all.txt -c homeassistant/package_constraints.txt --use-deprecated legacy-resolver --upgrade"
-alias ha_installtest="pip install -r requirements_test.txt"
-alias ha_installpre="pip install -r requirements_test_pre_commit.txt"
+alias ha_install="uv pip install -e ."
+alias ha_installreq="uv pip install -r requirements_all.txt -c homeassistant/package_constraints.txt"
+alias ha_installtest="uv pip install -r requirements_test.txt"
+alias ha_installpre="uv pip install -r requirements_test_pre_commit.txt"
 
 # Venv
-alias venv_enter="source venv/bin/activate"
-alias venv_create="python3 -m venv venv"
+alias venv_enter="source .venv/bin/activate"
+alias venv_create="python3 -m .venv .venv"
 
 # Pip
 alias pip_freeze="pip freeze > requirements.txt"
 alias pip_install="pip install -r requirements.txt"
+
+# Uv
+alias uv_install="uv pip install -r requirements.txt"
+alias uv_venv="uv venv"
 
 # Php
 alias pasip="php artisan serve --host 0.0.0.0 --port 8080"
@@ -71,10 +75,14 @@ alias laravel_clear="php artisan optimize:clear"
 alias sail="./vendor/bin/sail"
 
 # Pyenv
-alias pyenv_list='pyenv install --list | grep " 3\.[91011]"'
+alias pyenv_list='pyenv install --list | grep -E "^\s*3\.(11|12|13)(\..*|-dev.*)"'
 
 # Django
 alias django="python manage.py"
+
+ha_install_package() {
+  pip install -e ./../python-packages/python-$1
+}
 
 # Home Assistant tests
 ha_test() {

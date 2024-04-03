@@ -40,8 +40,8 @@ The use of **pyenv** is recommended to manage multiple python versions, with the
 
 ```bash
 pyenv install --list | grep -E "^\s*3\.(11|12|13)(\..*|-dev.*)"
-pyenv install 3.11.8
-pyenv global 3.11.8
+pyenv install 3.12.2
+pyenv global 3.12.2
 ```
 
 ### Setup Github account
