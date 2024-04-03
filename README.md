@@ -14,12 +14,13 @@ cd dotfiles && bash install.sh
 The following platforms are installed and set up by default with the bash script:
 
 - GitHub CLI
-- Oh My Zsh (with powerlevel10k)
-- Pyenv
-- Nvm
-- Docker
-- Docker Compose
-- Composer
+- [Oh My Zsh][omz] (with powerlevel10k)
+- [Pyenv][pyenv]
+- [Uv][uv]
+- [Nvm][nvm]
+- [Docker][docker]
+- [Docker Compose][docker_compose]
+- [Composer][composer]
 
 ## Manual installations
 
@@ -27,10 +28,10 @@ After installation, there are still a few things I always do manually.
 
 This is the case for:
 
-- Python
-- GitHub
-- Node.JS/NPM
-- Poetry
+- [Python][python] (via pyenv)
+- Git config (name and email)
+- Node.JS/NPM (via nvm)
+- [Poetry][poetry]
 - PHP
 
 ### Install a python version
@@ -99,3 +100,13 @@ sudo apt-get purge 'php8.1*'
 
 https://realpython.com/intro-to-pyenv/ <br>
 https://docs.docker.com/engine/install/ubuntu/
+
+[omz]: https://github.com/ohmyzsh/ohmyzsh
+[pyenv]: https://github.com/pyenv/pyenv
+[uv]: https://github.com/astral-sh/uv
+[nvm]: https://github.com/nvm-sh/nvm
+[docker]: https://docs.docker.com
+[docker_compose]: https://github.com/docker/compose
+[composer]: https://github.com/composer/composer
+[python]: https://www.python.org
+[poetry]: https://python-poetry.org/docs
