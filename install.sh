@@ -57,6 +57,14 @@ libxml2-dev libxmlsec1-dev libffi-dev liblzma-dev
 curl -L https://github.com/pyenv/pyenv-installer/raw/master/bin/pyenv-installer | bash
 
 #----------------------------------------------------------------------------
+# uv
+#----------------------------------------------------------------------------
+echo
+echo "** Installing UV"
+curl -LsSf https://astral.sh/uv/install.sh | sh
+source $HOME/.cargo/env
+
+#----------------------------------------------------------------------------
 # nvm (nodejs)
 #----------------------------------------------------------------------------
 echo
