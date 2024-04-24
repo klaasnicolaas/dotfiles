@@ -66,6 +66,7 @@ alias pip_install="pip install -r requirements.txt"
 # Uv
 alias uv_install="uv pip install -r requirements.txt"
 alias uv_venv="uv venv"
+alias uvdate="uv self update"
 
 # Php
 alias pasip="php artisan serve --host 0.0.0.0 --port 8080"
@@ -135,3 +136,4 @@ eval "$(pyenv virtualenv-init -)"
 
 # Uv
 . "$HOME/.cargo/env"
+. "/home/klaas/.cargo/env"
