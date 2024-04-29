@@ -57,7 +57,7 @@ alias ha_installpre="uv pip install -r requirements_test_pre_commit.txt"
 
 # Venv
 alias venv_enter="source .venv/bin/activate"
-alias venv_create="python3 -m .venv .venv"
+alias venv_create="python3 -m venv .venv"
 
 # Pip
 alias pip_freeze="pip freeze > requirements.txt"
