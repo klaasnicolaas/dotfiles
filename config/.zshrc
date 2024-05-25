@@ -138,4 +138,3 @@ eval "$(pyenv virtualenv-init -)"
 
 # Uv
 . "$HOME/.cargo/env"
-. "/home/klaas/.cargo/env"
