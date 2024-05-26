@@ -96,6 +96,12 @@ To remove the old packages:
 sudo apt-get purge 'php8.1*'
 ```
 
+To switch between PHP versions:
+
+```bash
+sudo update-alternatives --config php
+```
+
 ## Links
 
 https://realpython.com/intro-to-pyenv/ <br>
