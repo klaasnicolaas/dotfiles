@@ -71,7 +71,7 @@ bash components/poetry.sh
 
 ### Install PHP
 
-Instal PHP 8.2 and all the extensions:
+Instal PHP 8.3 and all the extensions:
 
 ```bash
 # 👇 install software-properties-common
@@ -84,16 +84,16 @@ sudo add-apt-repository ppa:ondrej/php
 sudo apt-get update
 
 # 👇 install latest PHP version
-sudo apt -y install php8.2
+sudo apt -y install php8.3
 
 # 👇 install all the extensions
-sudo apt install php8.2-{bcmath,xml,xmlrpc,fpm,mysql,zip,intl,ldap,gd,cli,bz2,curl,common,mbstring,pgsql,opcache,soap,cgi,imagick,readline,sqlite3}
+sudo apt install php8.3-{bcmath,xml,xmlrpc,fpm,mysql,zip,intl,ldap,gd,cli,bz2,curl,common,mbstring,pgsql,opcache,soap,cgi,imagick,readline,sqlite3}
 ```
 
-To remove the old packages:
+Remove packages from older PHP versions:
 
 ```bash
-sudo apt-get purge 'php8.1*'
+sudo apt-get purge 'php8.2*'
 ```
 
 To switch between PHP versions:
