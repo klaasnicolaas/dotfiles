@@ -32,6 +32,7 @@ This is the case for:
 - Git config (name and email)
 - Node.JS/NPM (via nvm)
 - [Poetry][poetry]
+- [Ruby][ruby] (via rbenv)
 - PHP
 
 ### Install a python version
@@ -67,6 +68,14 @@ _Note: This can only after installing python._
 
 ```bash
 bash components/poetry.sh
+```
+
+### Install Ruby
+
+Installs rbenv (with ruby-build) for OhMyZsh on Ubuntu:
+
+```bash
+bash components/ruby.sh
 ```
 
 ### Install PHP
@@ -116,3 +125,4 @@ https://docs.docker.com/engine/install/ubuntu/
 [composer]: https://github.com/composer/composer
 [python]: https://www.python.org
 [poetry]: https://python-poetry.org/docs
+[ruby]: https://www.ruby-lang.org/en/

@@ -24,6 +24,7 @@ plugins=(
   docker-compose
   laravel
   poetry
+  rbenv
 )
 
 # Custom plugins
