@@ -18,8 +18,7 @@ The following platforms are installed and set up by default with the bash script
 - [Pyenv][pyenv]
 - [Uv][uv]
 - [Nvm][nvm]
-- [Docker][docker]
-- [Docker Compose][docker_compose]
+- [Docker][docker] (with [Docker Compose][docker_compose])
 - [Composer][composer]
 
 ## Manual installations
