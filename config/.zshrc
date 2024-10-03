@@ -85,7 +85,7 @@ alias pyenv_list='pyenv install --list | grep -E "^\s*3\.(11|12|13)(\..*|-dev.*)
 alias django="python manage.py"
 
 ha_install_package() {
-  pip install -e ./../python-packages/python-$1
+  uv pip install -e ./../python-packages/python-$1
 }
 
 # Home Assistant tests
