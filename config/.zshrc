@@ -99,6 +99,7 @@ ha_test_snapshot_update() {
 }
 
 # Git
+alias gnext='nextbranch'
 git_rm_branches() {
   local branches=$(git branch | grep "$1")
 
@@ -120,6 +121,24 @@ git_rm_branches() {
       echo "Operation cancelled."
       ;;
   esac
+}
+
+function nextbranch() {
+  current_year=$(date +%Y)
+
+  last_branch=$(git branch --list "klaas-${current_year}-*" | sort -r | head -n 1)
+
+  if [[ -n "$last_branch" ]]; then
+    last_number=${last_branch##*-}
+    new_number=$(printf "%03d" $((10#$last_number + 1)))
+  else
+    new_number="001"
+  fi
+
+  new_branch="klaas-${current_year}-${new_number}"
+
+  # Switch to new branch
+  git checkout -b $new_branch
 }
 
 
