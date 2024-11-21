@@ -56,6 +56,11 @@ alias ha_installreq="uv pip install -r requirements_all.txt -c homeassistant/pac
 alias ha_installtest="uv pip install -r requirements_test.txt"
 alias ha_installpre="uv pip install -r requirements_test_pre_commit.txt"
 
+# Mr.Green aliases
+alias netos_start="bundle exec bin/dev"
+alias netos_migrate="bundle exec bin/rails db:migrate"
+alias netos_seed="bundle exec bin/rails db:seed"
+
 # Venv
 alias venv_enter="source .venv/bin/activate"
 alias venv_create="python3 -m venv .venv"
