@@ -6,22 +6,22 @@
 	ff = only
 
 [color]
-  diff = auto
-  status = auto
-  branch = auto
-  ui = true
+    diff = auto
+    status = auto
+    branch = auto
+    ui = true
 
 [apply]
-  whitespace = nowarn
+    whitespace = nowarn
 
 [mergetool]
-  keepBackup = false
+    keepBackup = false
 
 [difftool]
-  prompt = false
+    prompt = false
 
 [grep]
-  linenumber = true
+    linenumber = true
 [filter "lfs"]
 	required = true
 	clean = git-lfs clean -- %f

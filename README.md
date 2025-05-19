@@ -79,7 +79,7 @@ bash components/ruby.sh
 
 ### Install PHP
 
-Instal PHP 8.3 and all the extensions:
+Instal PHP 8.4 and all the extensions:
 
 ```bash
 # 👇 install software-properties-common
@@ -92,10 +92,10 @@ sudo add-apt-repository ppa:ondrej/php
 sudo apt-get update
 
 # 👇 install latest PHP version
-sudo apt -y install php8.3
+sudo apt -y install php8.4
 
 # 👇 install all the extensions
-sudo apt install php8.3-{bcmath,xml,xmlrpc,fpm,mysql,zip,intl,ldap,gd,cli,bz2,curl,common,mbstring,pgsql,opcache,soap,cgi,imagick,readline,sqlite3}
+sudo apt install php8.4-{bcmath,xml,xmlrpc,fpm,mysql,zip,intl,ldap,gd,cli,bz2,curl,common,mbstring,pgsql,opcache,soap,cgi,imagick,readline,sqlite3}
 ```
 
 Remove packages from older PHP versions:
