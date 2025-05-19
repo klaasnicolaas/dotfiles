@@ -81,11 +81,18 @@ if [[ "$SIGN_GPG" =~ ^[Yy]$ ]]; then
     git config --global user.signingkey "$EXISTING_KEY"
     git config --global commit.gpgsign true
 
-    log "GPG signing enabled! Your GPG public key to share (for GitHub):"
+    EXPORT_FILE="$HOME/public-gpg-key.txt"
+    gpg --armor --export "$EXISTING_KEY" > "$EXPORT_FILE"
+
+    log "GPG signing enabled!"
+    log "Your GPG public key is saved to: $EXPORT_FILE"
+    log "Open this file in a text editor and copy/paste it to GitHub:"
+    echo "    GitHub > Settings > SSH and GPG keys > New GPG key"
     echo "-------------------------------------------"
-    gpg --armor --export "$EXISTING_KEY"
+    head -n 3 "$EXPORT_FILE"
+    echo "..."
+    tail -n 3 "$EXPORT_FILE"
     echo "-------------------------------------------"
-    echo "Add this key to GitHub > Settings > SSH and GPG keys > New GPG key."
   else
     error "GPG key generation failed, or no key found for $GIT_EMAIL. Signing is not enabled."
   fi
