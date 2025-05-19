@@ -160,6 +160,7 @@ function nextbranch() {
 # Automatically check venv and node modules for executables
 export PATH="./venv/bin:./node_modules/.bin:~/bin:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
+. "$HOME/.local/bin/env"
 
 # Pyenv
 eval "$(pyenv init -)"
