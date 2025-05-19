@@ -56,13 +56,23 @@ log "Git global user.name/email configured."
 read -p "Do you want to GPG-sign Git commits by default? (y/n) " SIGN_GPG
 
 if [[ "$SIGN_GPG" =~ ^[Yy]$ ]]; then
+  if ! command -v gpg &>/dev/null; then
+    error "GPG is not installed! Install it first."
+  fi
+
   GIT_EMAIL=$(git config --global user.email)
-  EXISTING_KEY=$(gpg --list-secret-keys --keyid-format=long "$GIT_EMAIL" 2>/dev/null | grep sec | awk '{print $2}' | cut -d'/' -f2)
+  if [ -z "$GIT_EMAIL" ]; then
+    error "No Git user.email set! Set it first (run the Git config step again)."
+  fi
+
+  EXISTING_KEY=$(gpg --list-secret-keys --keyid-format=long "$GIT_EMAIL" 2>/dev/null | grep sec | awk '{print $2}' | cut -d'/' -f2 || true)
 
   if [ -z "$EXISTING_KEY" ]; then
-    log "No existing GPG key found for $GIT_EMAIL. Generating new key......"
+    log "No existing GPG key found for $GIT_EMAIL."
+    echo "Let's generate a key... (follow the prompts!)"
     gpg --full-generate-key
-    EXISTING_KEY=$(gpg --list-secret-keys --keyid-format=long "$GIT_EMAIL" 2>/dev/null | grep sec | awk '{print $2}' | cut -d'/' -f2)
+
+    EXISTING_KEY=$(gpg --list-secret-keys --keyid-format=long "$GIT_EMAIL" 2>/dev/null | grep sec | awk '{print $2}' | cut -d'/' -f2 || true)
   else
     log "GPG key found: $EXISTING_KEY"
   fi
@@ -71,13 +81,13 @@ if [[ "$SIGN_GPG" =~ ^[Yy]$ ]]; then
     git config --global user.signingkey "$EXISTING_KEY"
     git config --global commit.gpgsign true
 
-    log "GPG signing enabled! Your GPG public key to share (for example GitHub):"
+    log "GPG signing enabled! Your GPG public key to share (for GitHub):"
     echo "-------------------------------------------"
     gpg --armor --export "$EXISTING_KEY"
     echo "-------------------------------------------"
     echo "Add this key to GitHub > Settings > SSH and GPG keys > New GPG key."
   else
-    error "GPG key generation failed. Signing is not enabled."
+    error "GPG key generation failed, or no key found for $GIT_EMAIL. Signing is not enabled."
   fi
 else
   log "GPG signing is not activated."
