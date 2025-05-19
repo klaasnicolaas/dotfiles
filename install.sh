@@ -177,6 +177,16 @@ else
 fi
 
 #----------------------------------------
+# UV SHELL COMPLETION
+#----------------------------------------
+log "Setting up UV shell completion"
+
+if [ -f "$HOME/.zshrc" ] && ! grep -q 'uv generate-shell-completion zsh' "$HOME/.zshrc"; then
+  echo 'eval "$(uv generate-shell-completion zsh)"' >> "$HOME/.zshrc"
+  log "UV shell completion added to .zshrc"
+fi
+
+#----------------------------------------
 # NVM (NodeJS)
 #----------------------------------------
 log "Installing NVM (NodeJS)"
