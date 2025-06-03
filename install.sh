@@ -227,6 +227,9 @@ if ! command -v composer &>/dev/null; then
   php -r "if (hash_file('SHA384', '/tmp/composer-setup.php') === '$HASH') { echo 'Installer verified'; } else { echo 'Installer corrupt'; unlink('/tmp/composer-setup.php'); } echo PHP_EOL;"
   sudo php /tmp/composer-setup.php --install-dir=/usr/local/bin --filename=composer
   rm /tmp/composer-setup.php
+
+  # Install Laravel Installer globally
+  composer global require laravel/installer
 else
   log "Composer already installed."
 fi
