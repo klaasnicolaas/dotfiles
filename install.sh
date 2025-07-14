@@ -157,13 +157,28 @@ CHSH=no RUNZSH=no KEEP_ZSHRC=yes sh -c "$(curl -fsSL https://raw.github.com/ohmy
 # PYENV
 #----------------------------------------
 log "Installing Pyenv"
-if ! command -v pyenv &>/dev/null; then
+PYENV_ROOT="$HOME/.pyenv"
+
+if command -v pyenv &>/dev/null; then
+  log "Pyenv is already installed and available."
+else
+  if [ -d "$PYENV_ROOT" ]; then
+    log "Pyenv directory exists, but command not found. Removing possibly broken install..."
+    rm -rf "$PYENV_ROOT"
+  fi
+
+  log "Installing fresh Pyenv..."
   curl -L https://github.com/pyenv/pyenv-installer/raw/master/bin/pyenv-installer | bash
-  export PATH="$HOME/.pyenv/bin:$PATH"
+
+  export PATH="$PYENV_ROOT/bin:$PATH"
   eval "$(pyenv init --path)"
   eval "$(pyenv virtualenv-init -)"
-else
-  log "Pyenv already installed."
+  
+  if command -v pyenv &>/dev/null; then
+    log "Pyenv installed successfully."
+  else
+    error "Pyenv installation failed."
+  fi
 fi
 
 #----------------------------------------
@@ -191,7 +206,7 @@ fi
 #----------------------------------------
 log "Installing NVM (NodeJS)"
 if [ ! -d "$HOME/.nvm" ]; then
-  curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.0/install.sh | bash
+  curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.3/install.sh | bash
   export NVM_DIR="$HOME/.nvm"
   [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
 else
