@@ -28,11 +28,43 @@ After installation, there are still a few things I always do manually.
 This is the case for:
 
 - [Python][python] (via pyenv)
-- Git config (name and email)
 - Node.JS/NPM (via nvm)
-- [Poetry][poetry]
-- [Ruby][ruby] (via rbenv)
+- [Pipx][pipx] (via script)
+- [Poetry][poetry] (via script)
+- [Ruby][ruby] (via script)
 - PHP
+
+## Optional components
+
+The following components can be installed separately using the scripts in the `components/` directory:
+
+### 1. Pipx
+
+Install [pipx] for managing Python CLI tools in isolated environments.
+
+**Requirements:** pyenv with a Python version installed
+
+```bash
+bash components/pipx.sh
+```
+
+### 2. Poetry
+
+Install [Poetry][poetry] via pipx for Python dependency management.
+
+**Requirements:** pipx must be installed first
+
+```bash
+bash components/poetry.sh
+```
+
+### 3. Ruby
+
+Install [rbenv](https://github.com/rbenv/rbenv) with ruby-build for managing [Ruby][ruby] versions.
+
+```bash
+bash components/ruby.sh
+```
 
 ### Install a python version
 
@@ -45,6 +77,8 @@ pyenv global 3.12.4
 ```
 
 ### Setup Github account
+
+This will set your global git username and email. The install script will also prompt you for this information.
 
 ```bash
 git config --global user.name "Klaas Schoute"
@@ -59,22 +93,6 @@ Version 20 is currently the LTS version.
 nvm install 20
 nvm use 20
 nvm alias default 20
-```
-
-### Install Poetry
-
-_Note: This can only after installing python._
-
-```bash
-bash components/poetry.sh
-```
-
-### Install Ruby
-
-Installs rbenv (with ruby-build) for OhMyZsh on Ubuntu:
-
-```bash
-bash components/ruby.sh
 ```
 
 ### Install PHP
@@ -125,3 +143,4 @@ https://docs.docker.com/engine/install/ubuntu/
 [python]: https://www.python.org
 [poetry]: https://python-poetry.org/docs
 [ruby]: https://www.ruby-lang.org/en/
+[pipx]: https://github.com/pypa/pipx
