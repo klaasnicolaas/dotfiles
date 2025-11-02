@@ -1,11 +1,9 @@
-# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
-# Initialization code that may require console input (password prompts, [y/n]
-# confirmations, etc.) must go above this block; everything else may go below.
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
-
+# Zsh configuration file
 export SHELL=/usr/bin/zsh
+
+# Increase FUNCNEST to prevent "maximum nested function level reached" errors
+# This is needed for Oh My Posh + zsh-autosuggestions/zsh-syntax-highlighting
+export FUNCNEST=1000
 
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
@@ -15,9 +13,8 @@ export ZSH="$HOME/.oh-my-zsh"
 # much, much faster.
 DISABLE_UNTRACKED_FILES_DIRTY="true"
 
-ZSH_THEME="powerlevel10k/powerlevel10k"
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+# Disable theme to use Oh My Posh instead
+ZSH_THEME=""
 
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
@@ -171,3 +168,8 @@ eval "$(pyenv virtualenv-init -)"
 
 # Uv
 [ -f "$HOME/.cargo/env" ] && . "$HOME/.cargo/env"
+
+eval "$(uv generate-shell-completion zsh)"
+
+# Oh My Posh with custom theme - MUST be loaded LAST after all other plugins
+eval "$(oh-my-posh init zsh --config ~/.theme.omp.json)"

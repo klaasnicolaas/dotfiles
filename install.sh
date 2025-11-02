@@ -27,7 +27,7 @@ mkdir -p "$HOME"
 ln -sf "$DOTFILES/.gitconfig" "$HOME/.gitconfig"
 ln -sf "$DOTFILES/.gitignore" "$HOME/.gitignore"
 ln -sf "$DOTFILES/.zshrc" "$HOME/.zshrc"
-ln -sf "$DOTFILES/.p10k.zsh" "$HOME/.p10k.zsh"
+ln -sf "$DOTFILES/theme.omp.json" "$HOME/.theme.omp.json"
 
 #----------------------------------------
 # INTERACTIVE GIT CONFIGURATION
@@ -142,7 +142,7 @@ else
 fi
 
 #----------------------------------------
-# OH MY ZSH + PLUGINS/THEME
+# OH MY ZSH + PLUGINS
 #----------------------------------------
 log_header "Oh My Zsh"
 log_info "Installing Oh My Zsh and plugins"
@@ -150,11 +150,21 @@ rm -rf "$HOME/.oh-my-zsh"
 touch "$HOME/.z"  # Avoid warning on first use
 CHSH=no RUNZSH=no KEEP_ZSHRC=yes sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
-# Theme
-[ -d "$HOME/.oh-my-zsh/custom/themes/powerlevel10k" ] || git clone --depth=1 https://github.com/romkatv/powerlevel10k.git "$HOME/.oh-my-zsh/custom/themes/powerlevel10k"
 # Plugins
 [ -d "$HOME/.oh-my-zsh/custom/plugins/zsh-autosuggestions" ] || git clone --depth=1 https://github.com/zsh-users/zsh-autosuggestions "$HOME/.oh-my-zsh/custom/plugins/zsh-autosuggestions"
 [ -d "$HOME/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting" ] || git clone --depth=1 https://github.com/zsh-users/zsh-syntax-highlighting "$HOME/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting"
+
+#----------------------------------------
+# OH MY POSH
+#----------------------------------------
+log_header "Oh My Posh"
+if ! command -v oh-my-posh &>/dev/null; then
+  log_info "Installing Oh My Posh"
+  curl -s https://ohmyposh.dev/install.sh | bash -s
+  log_success "Oh My Posh installed"
+else
+  log_success "Oh My Posh already installed"
+fi
 
 #----------------------------------------
 # PYENV
