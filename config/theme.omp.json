@@ -71,7 +71,8 @@
       ]
     },
     {
-      "type": "rprompt",
+      "type": "prompt",
+      "alignment": "right",
       "segments": [
         {
           "type": "status",
