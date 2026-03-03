@@ -147,7 +147,7 @@ function nextbranch() {
   new_branch="klaas-${current_year}-${new_number}"
 
   # Switch to new branch
-  git checkout -b $new_branch
+  git switch -c $new_branch
 }
 
 
