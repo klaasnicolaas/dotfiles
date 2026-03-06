@@ -108,7 +108,15 @@ ha_test_snapshot_update() {
 }
 
 # Git
-alias gnext='nextbranch'
+alias gnext="fn_next_git_branch"
+
+# Git worktree
+alias gwta="git_worktree_add"
+alias gwtr="git_worktree_remove"
+alias gwtn="git_worktree_next"
+alias gwtl="git worktree list"
+
+# Git functions
 git_rm_branches() {
   local branches=$(git branch | grep "$1")
 
@@ -132,7 +140,7 @@ git_rm_branches() {
   esac
 }
 
-function get_next_branch_name() {
+function fn_get_next_branch_name() {
   local current_year=$(date +%Y)
   local last_branch=$(git branch --list "klaas-${current_year}-*" | sort -r | head -n 1)
 
@@ -146,8 +154,8 @@ function get_next_branch_name() {
   echo "klaas-${current_year}-${new_number}"
 }
 
-function nextbranch() {
-  local new_branch=$(get_next_branch_name)
+function fn_next_git_branch() {
+  local new_branch=$(fn_get_next_branch_name)
   git switch -c $new_branch
 }
 
@@ -155,7 +163,7 @@ function nextbranch() {
 function git_worktree_add() {
   if [ -z "$1" ]; then
     echo "Error: Branch name required"
-    echo "Usage: git_worktree_add <branch-name> [location]"
+    echo "Usage: gwta <branch-name> [location]"
     return 1
   fi
 
@@ -168,7 +176,7 @@ function git_worktree_add() {
 function git_worktree_remove() {
   if [ -z "$1" ]; then
     echo "Error: Branch name required"
-    echo "Usage: git_worktree_remove <branch-name> [location]"
+    echo "Usage: gwtr <branch-name> [location]"
     return 1
   fi
 
@@ -180,12 +188,12 @@ function git_worktree_remove() {
 function git_worktree_next() {
   if [ -z "$1" ]; then
     echo "Error: Feature name required"
-    echo "Usage: git_worktree_next <feature-name>"
+    echo "Usage: gwtn <feature-name>"
     return 1
   fi
 
   local feature_name="$1"
-  local new_branch=$(get_next_branch_name)
+  local new_branch=$(fn_get_next_branch_name)
   local location="../${feature_name}"
 
   echo "Creating branch: $new_branch"
@@ -193,12 +201,6 @@ function git_worktree_next() {
 
   git worktree add -b "$new_branch" "$location"
 }
-
-# Git worktree aliases
-alias gwta="git_worktree_add"
-alias gwtr="git_worktree_remove"
-alias gwtn="git_worktree_next"
-alias gwtl="git worktree list"
 
 
 # fzf
