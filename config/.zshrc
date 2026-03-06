@@ -150,6 +150,37 @@ function nextbranch() {
   git switch -c $new_branch
 }
 
+# Git worktree functions
+git_worktree_add() {
+  if [ -z "$1" ]; then
+    echo "Error: Branch name required"
+    echo "Usage: git_worktree_add <branch-name> [path]"
+    return 1
+  fi
+
+  local branch="$1"
+  local path="${2:-../$1}"
+
+  git worktree add -b "$branch" "$path"
+}
+
+git_worktree_remove() {
+  if [ -z "$1" ]; then
+    echo "Error: Branch name required"
+    echo "Usage: git_worktree_remove <branch-name> [path]"
+    return 1
+  fi
+
+  local path="${2:-../$1}"
+
+  git worktree remove "$path"
+}
+
+# Git worktree aliases
+alias gwta="git_worktree_add"
+alias gwtr="git_worktree_remove"
+alias gwtl="git worktree list"
+
 
 # fzf
 [ -f /usr/share/doc/fzf/examples/key-bindings.zsh ] && source /usr/share/doc/fzf/examples/key-bindings.zsh
