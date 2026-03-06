@@ -151,29 +151,29 @@ function nextbranch() {
 }
 
 # Git worktree functions
-git_worktree_add() {
+function git_worktree_add() {
   if [ -z "$1" ]; then
     echo "Error: Branch name required"
-    echo "Usage: git_worktree_add <branch-name> [path]"
+    echo "Usage: git_worktree_add <branch-name> [location]"
     return 1
   fi
 
   local branch="$1"
-  local path="${2:-../$1}"
+  local location="${2:-../$1}"
 
-  git worktree add -b "$branch" "$path"
+  git worktree add -b "$branch" "$location"
 }
 
-git_worktree_remove() {
+function git_worktree_remove() {
   if [ -z "$1" ]; then
     echo "Error: Branch name required"
-    echo "Usage: git_worktree_remove <branch-name> [path]"
+    echo "Usage: git_worktree_remove <branch-name> [location]"
     return 1
   fi
 
-  local path="${2:-../$1}"
+  local location="${2:-../$1}"
 
-  git worktree remove "$path"
+  git worktree remove "$location"
 }
 
 # Git worktree aliases
