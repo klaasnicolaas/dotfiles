@@ -132,21 +132,22 @@ git_rm_branches() {
   esac
 }
 
-function nextbranch() {
-  current_year=$(date +%Y)
-
-  last_branch=$(git branch --list "klaas-${current_year}-*" | sort -r | head -n 1)
+function get_next_branch_name() {
+  local current_year=$(date +%Y)
+  local last_branch=$(git branch --list "klaas-${current_year}-*" | sort -r | head -n 1)
 
   if [[ -n "$last_branch" ]]; then
-    last_number=${last_branch##*-}
-    new_number=$(printf "%03d" $((10#$last_number + 1)))
+    local last_number=${last_branch##*-}
+    local new_number=$(printf "%03d" $((10#$last_number + 1)))
   else
-    new_number="001"
+    local new_number="001"
   fi
 
-  new_branch="klaas-${current_year}-${new_number}"
+  echo "klaas-${current_year}-${new_number}"
+}
 
-  # Switch to new branch
+function nextbranch() {
+  local new_branch=$(get_next_branch_name)
   git switch -c $new_branch
 }
 
@@ -176,9 +177,27 @@ function git_worktree_remove() {
   git worktree remove "$location"
 }
 
+function git_worktree_next() {
+  if [ -z "$1" ]; then
+    echo "Error: Feature name required"
+    echo "Usage: git_worktree_next <feature-name>"
+    return 1
+  fi
+
+  local feature_name="$1"
+  local new_branch=$(get_next_branch_name)
+  local location="../${feature_name}"
+
+  echo "Creating branch: $new_branch"
+  echo "Creating worktree: $location"
+
+  git worktree add -b "$new_branch" "$location"
+}
+
 # Git worktree aliases
 alias gwta="git_worktree_add"
 alias gwtr="git_worktree_remove"
+alias gwtn="git_worktree_next"
 alias gwtl="git worktree list"
 
 
